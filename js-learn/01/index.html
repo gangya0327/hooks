@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function Foo() {
+      getName = function() {
+        // alert(1);
+        console.log(1);
+      };
+      return this;
+    }
+    Foo.getName = function() {
+      //   alert(2);
+      console.log(2);
+    };
+    Foo.prototype.getName = function() {
+      //   alert(3);
+      console.log(3);
+    };
+    var getName = function() {
+      //   alert(4);
+      console.log(4);
+    };
+    function getName() {
+      //   alert(5);
+      console.log(5);
+    }
+
+    //请写出以下输出结果：
+    Foo.getName(); // 静态方法，直接访问
+    getName(); // 函数声明式比函数表达式会有声明提升，表达式覆盖了声明式
+    Foo().getName(); // Foo里也含有声明式，覆盖了前面的
+    getName();
+    new Foo.getName();
+    new Foo().getName();
+    new new Foo().getName();
+  </script>
+</html>

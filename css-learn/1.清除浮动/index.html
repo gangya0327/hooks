@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        padding: 10px;
+      }
+      .block {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+        border: 1px solid #333;
+        float: left;
+      }
+      .clearfix::after {
+        content: "\u00a0";
+        width: 0;
+        height: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+        font-size: 0;
+        line-height: 0;
+        overflow: hidden;
+      }
+      .clearfix {
+        zoom: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main clearfix">
+      <div class="left block"></div>
+      <div class="right block"></div>
+    </div>
+    <div>123</div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p.one {
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      p.multiple {
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h3>单行省略</h3>
+      <p class="one">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse nulla
+        aliquid reprehenderit maxime nemo, ipsam assumenda dolorum nesciunt
+        error ullam. Rerum cum neque simil.
+      </p>
+    </div>
+    <div>
+      <h3>多行省略</h3>
+      <p class="multiple">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse nulla
+        aliquid reprehenderit maxime nemo, ipsam assumenda dolorum nesciunt
+        error ullam. Rerum cum neque simil.
+      </p>
+    </div>
+  </body>
+</html>

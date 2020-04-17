@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        padding: 10px;
+        border: 1px solid #a3cdf0;
+        margin-bottom: 10px;
+      }
+      .main {
+        height: 200px;
+        border: 1px solid #333;
+        position: relative;
+      }
+      .block {
+        width: 140px;
+        height: 100px;
+        background-color: red;
+      }
+      .block1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -50px;
+        margin-left: -70px;
+      }
+      .block2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .main3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h3>绝对定位+已知宽高</h3>
+      <div class="main">
+        <div class="block1 block"></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <h3>绝对定位+未知宽高+translate</h3>
+      <div class="main">
+        <div class="block2 block"></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <h3>flex</h3>
+      <div class="main3 main">
+        <div class="block3 block"></div>
+      </div>
+    </div>
+  </body>
+</html>
