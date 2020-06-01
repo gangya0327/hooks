@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 
+const isEnvProduction = process.env.NODE_ENV === 'production'
+
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
@@ -16,7 +18,6 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
     app: './src/index.js'
-    // print: './src/print.js'
   },
   output: {
     filename: 'bundle.js',
@@ -35,10 +36,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        // options: { presets: ["@babel/preset-env"] }
-        // use: [{
-        //   loader: 'babel-loader'
-        // }]
+        options: { presets: ["@babel/preset-env", "@babel/preset-react"] }
       },
       // {
       //   test: sassRegex,
@@ -50,9 +48,13 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'output management'
+      title: 'output management',
+      template: './public/index.html'
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  optimization: {
+    minimize: isEnvProduction,
+  }
 }

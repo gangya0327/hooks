@@ -5,6 +5,7 @@ const config = require('./webpack.config')
 const options = {
   contentBase: '/public',
   hot: true,
+  publicPath: '/',
   host: 'localhost'
 }
 

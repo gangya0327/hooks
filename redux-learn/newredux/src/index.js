@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+import './index.css'
+import { cube } from './math'
 
-console.log('document', document)
-console.log('root', document.getElementById('root'))
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App number={cube(2)}/>, document.getElementById('root'))
 
 // import _ from 'lodash'
 // import './index.css'
