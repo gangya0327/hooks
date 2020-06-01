@@ -3,12 +3,12 @@ const webpack = require('webpack')
 
 const config = require('./webpack.config')
 const options = {
-  contentBase: './dist',
+  contentBase: '/public',
   hot: true,
   host: 'localhost'
 }
 
-webpackDevServer.addDevServerEntrypoints(config, options)
+// webpackDevServer.addDevServerEntrypoints(config, options)
 const compiler = webpack(config)
 const server = new webpackDevServer(compiler, options)
 
