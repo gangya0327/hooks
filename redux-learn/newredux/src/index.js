@@ -4,7 +4,30 @@ import App from './App'
 import './index.css'
 import { cube } from './math'
 
-ReactDOM.render(<App number={cube(2)}/>, document.getElementById('root'))
+import { createStore } from 'redux'
+// import { Provider } from 'react-redux'
+import todoApp from './reducer'
+import { addTodo, toggleTodo, setVisibilityFilter, VisibilityFilters } from './action'
+
+let store = createStore(todoApp)
+
+// 打印初始状态
+console.log(store.getState())
+
+store.dispatch(addTodo('gogogo'))
+store.dispatch(toggleTodo(0))
+store.dispatch(addTodo('testtest'))
+store.dispatch(addTodo('ttewrw'))
+store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE))
+
+console.log(store.getState())
+
+ReactDOM.render(
+  // <Provider store={store}>
+  //   <App number={cube(2)} />
+  // </Provider>,
+  <App number={cube(2)} />,
+  document.getElementById('root'))
 
 // import _ from 'lodash'
 // import './index.css'
